@@ -19,9 +19,6 @@ public abstract class Contract {
     protected double monthlyPayment;
 
     public void setDateOfCreation(LocalDateTime dateOfCreation) {
-        //if(dateOfCreation == null){
-           // throw new IllegalArgumentException();
-        //}
         this.dateOfCreation = LocalDateTime.now();
     }
 
