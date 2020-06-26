@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit contract</title>
+</head>
+<body>
+<form th:action="@{'/user/update/contract/houseandflat_insurance/' + ${contractID}}" method="post">
+
+    <label for="dateOfCreation">Date of creation</label>
+    <input type="datetime-local" th:field="${insurance.dateOfCreation}" id="dateOfCreation"/>
+    <p th:if="${#fields.hasErrors('insurance.dateOfCreation')}" th:errors="${insurance.dateOfCreation}"></p><br>
+
+    <label for="beginningOfInsurance">Beginning of insurance</label>
+    <input type="date" th:field="${insurance.dateOfBegginingOfInsurance}" id="beginningOfInsurance"/>
+    <p th:if="${#fields.hasErrors('insurance.dateOfBegginingOfInsurance')}" th:errors="${insurance.dateOfBegginingOfInsurance}"></p><br>
+
+    <label for="dateOfEndOfInsurance">End of insurance</label>
+    <input type="date" th:field="${insurance.dateOfEndOfInsurance}" id="dateOfEndOfInsurance"/>
+    <p th:if="${#fields.hasErrors('insurance.dateOfEndOfInsurance')}" th:errors="${insurance.dateOfEndOfInsurance}"></p><br>
+
+    <label for="insuranceAmount">Insurance amount</label>
+    <input type="number" th:field="${insurance.insuranceAmount}" id="insuranceAmount"/>
+    <p th:if="${#fields.hasErrors('insurance.insuranceAmount')}" th:errors="${insurance.insuranceAmount}"></p><br>
+
+    <label for="monthlyPayment">Monthly payment</label>
+    <input type="number" th:field="${insurance.monthlyPayment}" id="monthlyPayment"/>
+    <p th:if="${#fields.hasErrors('insurance.monthlyPayment')}" th:errors="${insurance.monthlyPayment}"></p><br>
+
+    <label for="propertyValue">Value of property</label>
+    <input type="number" th:field="${insurance.propertyValue}" id="propertyValue"/>
+    <p th:if="${#fields.hasErrors('insurance.propertyValue')}" th:errors="${insurance.propertyValue}"></p><br>
+
+    <label for="propertyType">Type of property</label>
+    <input type="number" th:field="${insurance.propertyType}" id="propertyType"/>
+    <p th:if="${#fields.hasErrors('insurance.propertyType')}" th:errors="${insurance.propertyType}"></p><br>
+
+    <label for="garageInsurance">Garage Insurance</label>
+    <input type="checkbox" th:field="${insurance.garageInsurance}" id="garageInsurance"/>
+    <p th:if="${#fields.hasErrors('insurance.garageInsurance')}" th:errors="${insurance.garageInsurance}"></p><br>
+
+    <h4> Property address </h4>
+
+    <label for="town">Town</label>
+    <input type="text" th:field="${address.permanentAddress.town}" id="town"/>
+    <p th:if="${#fields.hasErrors('address.permanentAddress.town')}" th:errors="${address.permanentAddress.town}"></p><br>
+
+    <label for="street">Street</label>
+    <input type="text" th:field="${address.permanentAddress.street}" id="street"/>
+    <p th:if="${#fields.hasErrors('address.permanentAddress.street')}" th:errors="${address.permanentAddress.street}"></p><br>
+
+    <label for="houseNumber">House number</label>
+    <input type="text" th:field="${address.permanentAddress.houseNumber}" id="houseNumber"/>
+    <p th:if="${#fields.hasErrors('address.permanentAddress.houseNumber')}" th:errors="${address.permanentAddress.houseNumber}"></p><br>
+
+    <label for="zip">Zip code</label>
+    <input type="number" th:field="${address.permanentAddress.zipCode}" id="zip"/>
+    <p th:if="${#fields.hasErrors('address.permanentAddress.zipCode')}" th:errors="${address.permanentAddress.zipCode}"></p><br>
+
+    <input type="hidden" th:field="${insurance.id}"/>
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

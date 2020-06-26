@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contract details</title>
+</head>
+<body>
+<span>Contract ID:</span>
+<span th:text="${insurance.id}"></span><br>
+<span>Created:</span>
+<span th:text="${insurance.dateOfCreation}"></span><br>
+<span>Beginning of insurance</span>
+<span th:text="${insurance.dateOfBegginingOfInsurance}"></span><br>
+<span>End of insurance</span>
+<span th:text="${insurance.dateOfEndOfInsurance}"></span><br>
+<span>Insurance amount:</span>
+<span th:text="${insurance.insuranceAmount}"></span><br>
+<span>Monthly payment:</span>
+<span th:text="${insurance.monthlyPayment}"></span><br>
+<span>Type of property:</span>
+<span th:text="${insurance.propertyType}"></span><br>
+<span>Value of property:</span>
+<span th:text="${insurance.propertyValue}"></span><br>
+<span>Garage:</span>
+<span th:text="${insurance.garageInsurance}"></span><br>
+
+<h4>Assurer</h4>
+<span>Id:</span>
+<span th:text="${insurance.assurer.id}"></span><br>
+<span>First name:</span>
+<span th:text="${insurance.assurer.surName}"></span><br>
+<span>Last name:</span>
+<span th:text="${insurance.assurer.lastName}"></span><br>
+<span>Pid:</span>
+<span th:text="${insurance.assurer.pid}"></span><br>
+<span>E-mail:</span>
+<span th:text="${insurance.assurer.e_mail}"></span><br>
+
+<h5>Permanent Address</h5>
+<span>Town:</span>
+<span th:text="${insurance.assurer.permanentAddress.town}"></span><br>
+<span>Street:</span>
+<span th:text="${insurance.assurer.permanentAddress.street}"></span><br>
+<span>House number:</span>
+<span th:text="${insurance.assurer.permanentAddress.houseNumber}"></span><br>
+<span>Zip code:</span>
+<span th:text="${insurance.assurer.permanentAddress.zipCode}"></span><br>
+
+<h5>Postal Address</h5>
+<span>Town:</span>
+<span th:text="${insurance.assurer.postalAddress.town}"></span><br>
+<span>Street:</span>
+<span th:text="${insurance.assurer.postalAddress.street}"></span><br>
+<span>House number:</span>
+<span th:text="${insurance.assurer.postalAddress.houseNumber}"></span><br>
+<span>Zip code:</span>
+<span th:text="${insurance.assurer.postalAddress.zipCode}"></span><br>
+
+<h4>Property Address</h4>
+<span>Town:</span>
+<span th:text="${insurance.propertyAddress.town}"></span><br>
+<span>Street:</span>
+<span th:text="${insurance.propertyAddress.street}"></span><br>
+<span>House number:</span>
+<span th:text="${insurance.propertyAddress.houseNumber}"></span><br>
+<span>Zip code:</span>
+<span th:text="${insurance.propertyAddress.zipCode}"></span><br>
+
+<a th:href="@{'/user/update/contract/houseandflat_insurance/' + ${insurance.id}}">edit</a>
+</body>
+</html>

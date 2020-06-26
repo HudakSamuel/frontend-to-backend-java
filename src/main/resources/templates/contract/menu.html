@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contract menu</title>
+</head>
+<body>
+    <a th:href="@{'/user/add/injury_insurance/' + ${id}}">Create injury insurance </a><br>
+    <a th:href="@{'/user/add/travel_insurance/' + ${id}}">Create travel insurance </a><br>
+    <a th:href="@{'/user/add/household_insurance/' + ${id}}">Create household insurance </a><br>
+    <a th:href="@{'/user/add/houseandflat_insurance/' + ${id}}">Create house and flat insurance </a><br>
+</body>
+</html>

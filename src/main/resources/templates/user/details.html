@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User details</title>
+</head>
+<body>
+    <span>First name:</span>
+    <span th:text="${user.surName}"></span><br>
+    <span>Last name:</span>
+    <span th:text="${user.lastName}"></span><br>
+    <span>Pid:</span>
+    <span th:text="${user.pid}"></span><br>
+    <span>E-mail:</span>
+    <span th:text="${user.e_mail}"></span><br>
+
+    <h4>Permanent Address</h4>
+    <span>Town:</span>
+    <span th:text="${user.permanentAddress.town}"></span><br>
+    <span>Street:</span>
+    <span th:text="${user.permanentAddress.street}"></span><br>
+    <span>House number:</span>
+    <span th:text="${user.permanentAddress.houseNumber}"></span><br>
+    <span>Zip code:</span>
+    <span th:text="${user.permanentAddress.zipCode}"></span><br>
+
+    <h4>Postal Address</h4>
+    <span>Town:</span>
+    <span th:text="${user.postalAddress.town}"></span><br>
+    <span>Street:</span>
+    <span th:text="${user.postalAddress.street}"></span><br>
+    <span>House number:</span>
+    <span th:text="${user.postalAddress.houseNumber}"></span><br>
+    <span>Zip code:</span>
+    <span th:text="${user.postalAddress.zipCode}"></span><br>
+
+    <h4>Contracts</h4>
+    <table>
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">Created</th>
+            <th class="mdl-data-table__cell--non-numeric">Beginning of insurance</th>
+            <th class="mdl-data-table__cell--non-numeric">End of Insurance</th>
+            <th class="mdl-data-table__cell--non-numeric">Monthly payment</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contract: ${user.contractList}">
+            <td th:text="${contract.dateOfCreation}"></td>
+            <td th:text="${contract.dateOfBegginingOfInsurance}"></td>
+            <td th:text="${contract.dateOfEndOfInsurance}"></td>
+            <td th:text="${contract.monthlyPayment}"></td>
+            <td>
+                <span th:if="${contract instanceof T(sk.fei.stuba.zadanie3.domain.contracts.life.InjuryInsurance)}"> <a th:href="@{'/user/details/injury_insurance/' + ${contract.id}}">details</a>
+                    <a th:href="@{'/user/update/contract/injury_insurance/' + ${contract.id}}">edit</a></span>
+                <span th:if="${contract instanceof T(sk.fei.stuba.zadanie3.domain.contracts.life.TravelInsurance)}"> <a th:href="@{'/user/details/travel_insurance/' + ${contract.id}}">details</a>
+                    <a th:href="@{'/user/update/contract/travel_insurance/' + ${contract.id}}">edit</a></span>
+                <span th:if="${contract instanceof T(sk.fei.stuba.zadanie3.domain.contracts.non_life.HouseholdInsurance)}"> <a th:href="@{'/user/details/household_insurance/' + ${contract.id}}">details</a>
+                    <a th:href="@{'/user/update/contract/household_insurance/' + ${contract.id}}">edit</a></span>
+                <span th:if="${contract instanceof T(sk.fei.stuba.zadanie3.domain.contracts.non_life.HouseAndFlatInsurance)}"> <a th:href="@{'/user/details/houseandflat_insurance/' + ${contract.id}}">details</a>
+                <a th:href="@{'/user/update/contract/houseandflat_insurance/' + ${contract.id}}">edit</a></span>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a th:href="@{'/user/update/' + ${user.id}}">edit user</a>
+    <a th:href="@{'/user/contract_menu/' + ${user.id}}">Manage contracts</a>
+
+
+
+</body>
+</html>

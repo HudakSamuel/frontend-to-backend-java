@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">ID</th>
+            <th class="mdl-data-table__cell--non-numeric">Surname</th>
+            <th class="mdl-data-table__cell--non-numeric">Lastname</th>
+            <th class="mdl-data-table__cell--non-numeric">E_mail</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.surName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.e_mail}"></td>
+            <td>
+                <a th:href="@{'/user/details/' + ${user.id}}">details</a>
+            </td>
+            <td>
+                <a th:href="@{'/user/update/' + ${user.id}}">edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <a href="/user/add" target="_blank">Create new user</a>
+</body>
+</html>

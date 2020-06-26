@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create contract</title>
+</head>
+<body>
+    <form th:action="@{'/user/add/injury_insurance/' + ${id}}" method="post">
+        <label for="dateOfCreation">Date of creation</label>
+        <input type="datetime-local" th:field="${insurance.dateOfCreation}" id="dateOfCreation"/>
+        <p th:if="${#fields.hasErrors('insurance.dateOfCreation')}" th:errors="${insurance.dateOfCreation}"></p><br>
+
+        <label for="beginningOfInsurance">Beginning of insurance</label>
+        <input type="date" th:field="${insurance.dateOfBegginingOfInsurance}" id="beginningOfInsurance"/>
+        <p th:if="${#fields.hasErrors('insurance.dateOfBegginingOfInsurance')}" th:errors="${insurance.dateOfBegginingOfInsurance}"></p><br>
+
+        <label for="dateOfEndOfInsurance">End of insurance</label>
+        <input type="date" th:field="${insurance.dateOfEndOfInsurance}" id="dateOfEndOfInsurance"/>
+        <p th:if="${#fields.hasErrors('insurance.dateOfEndOfInsurance')}" th:errors="${insurance.dateOfEndOfInsurance}"></p><br>
+
+        <label for="insuranceAmount">Insurance amount</label>
+        <input type="number" th:field="${insurance.insuranceAmount}" id="insuranceAmount"/>
+        <p th:if="${#fields.hasErrors('insurance.insuranceAmount')}" th:errors="${insurance.insuranceAmount}"></p><br>
+
+        <label for="monthlyPayment">Monthly payment</label>
+        <input type="number" th:field="${insurance.monthlyPayment}" id="monthlyPayment"/>
+        <p th:if="${#fields.hasErrors('insurance.monthlyPayment')}" th:errors="${insurance.monthlyPayment}"></p><br>
+
+        <label for="assuredID">ID of assured person</label>
+        <input type="number" th:field="${assuredID.userID}" id="assuredID"/>
+        <p th:if="${#fields.hasErrors('assuredID.userID')}" th:errors="${assuredID.userID}"></p><br>
+
+        <label for="permanentInjury">Amount for permanent injury</label>
+        <input type="number" th:field="${insurance.permanentInjury}" id="permanentInjury"/>
+        <p th:if="${#fields.hasErrors('insurance.permanentInjury')}" th:errors="${insurance.permanentInjury}"></p><br>
+
+        <label for="death">Amount for death</label>
+        <input type="number" th:field="${insurance.death}" id="death"/>
+        <p th:if="${#fields.hasErrors('insurance.death')}" th:errors="${insurance.death}"></p><br>
+
+        <label for="dailyHospitalizationAmount">Daily hospitalization amount</label>
+        <input type="number" th:field="${insurance.dailyHospitalizationAmount}" id="dailyHospitalizationAmount"/>
+        <p th:if="${#fields.hasErrors('insurance.dailyHospitalizationAmount')}" th:errors="${insurance.dailyHospitalizationAmount}"></p><br>
+
+        <label for="validArea">Valid area</label>
+        <input type="number" th:field="${insurance.validArea}" id="validArea"/>
+        <p th:if="${#fields.hasErrors('insurance.validArea')}" th:errors="${insurance.validArea}"></p><br>
+
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

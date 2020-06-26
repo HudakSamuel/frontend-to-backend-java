@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+</head>
+<body>
+    <form th:action="@{/user/add}" method="post">
+        <label for="surName">First Name</label>
+        <input type="text" th:field="${user.surName}" id="surName"/>
+        <p th:if="${#fields.hasErrors('user.surName')}" th:errors="${user.surName}"></p><br>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" th:field="${user.lastName}"  id="lastName"/>
+        <p th:if="${#fields.hasErrors('user.lastName')}" th:errors="${user.lastName}"></p><br>
+
+        <label for="pid">Pid</label>
+        <input type="text" th:field="${user.pid}" id="pid"/>
+        <p th:if="${#fields.hasErrors('user.pid')}" th:errors="${user.pid}"></p><br>
+
+        <label for="e_mail">E-mail</label>
+        <input type="text" th:field="${user.e_mail}" id="e_mail"/>
+        <p th:if="${#fields.hasErrors('user.e_mail')}" th:errors="${user.e_mail}"></p><br>
+
+
+        <h4> Permanent address </h4>
+
+        <label for="town">Town</label>
+        <input type="text" th:field="${nestAddress.permanentAddress.town}" id="town"/>
+        <p th:if="${#fields.hasErrors('nestAddress.permanentAddress.town')}" th:errors="${nestAddress.permanentAddress.town}"></p><br>
+
+        <label for="street">Street</label>
+        <input type="text" th:field="${nestAddress.permanentAddress.street}" id="street"/>
+        <p th:if="${#fields.hasErrors('nestAddress.permanentAddress.street')}" th:errors="${nestAddress.permanentAddress.street}"></p><br>
+
+        <label for="houseNumber">House number</label>
+        <input type="text" th:field="${nestAddress.permanentAddress.houseNumber}" id="houseNumber"/>
+        <p th:if="${#fields.hasErrors('nestAddress.permanentAddress.houseNumber')}" th:errors="${nestAddress.permanentAddress.houseNumber}"></p><br>
+
+        <label for="zip">Zip code</label>
+        <input type="number" th:field="${nestAddress.permanentAddress.zipCode}" id="zip"/>
+        <p th:if="${#fields.hasErrors('nestAddress.permanentAddress.zipCode')}" th:errors="${nestAddress.permanentAddress.zipCode}"></p><br>
+
+
+        <h4> Postal address </h4>
+
+        <label for="postaltown">Town</label>
+        <input type="text" th:field="${nestAddress.postalAddress.town}" id="postaltown"/>
+        <p th:if="${#fields.hasErrors('nestAddress.postalAddress.town')}" th:errors="${nestAddress.postalAddress.town}"></p><br>
+
+        <label for="postalstreet">Street</label>
+        <input type="text" th:field="${nestAddress.postalAddress.street}" id="postalstreet"/>
+        <p th:if="${#fields.hasErrors('nestAddress.postalAddress.street')}" th:errors="${nestAddress.postalAddress.street}"></p><br>
+
+        <label for="postalhouseNumber">House number</label>
+        <input type="text" th:field="${nestAddress.postalAddress.houseNumber}" id="postalhouseNumber"/>
+        <p th:if="${#fields.hasErrors('nestAddress.postalAddress.houseNumber')}" th:errors="${nestAddress.postalAddress.houseNumber}"></p><br>
+
+        <label for="postalzip">Zip code</label>
+        <input type="number" th:field="${nestAddress.postalAddress.zipCode}" id="postalzip"/>
+        <p th:if="${#fields.hasErrors('nestAddress.postalAddress.zipCode')}" th:errors="${nestAddress.postalAddress.zipCode}"></p><br>
+
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>
